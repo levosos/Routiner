@@ -5,10 +5,10 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class AuthService {
-  public readonly state: Observable<firebase.User | null>;
+  public readonly user$: Observable<firebase.User | null>;
 
   constructor(private af: AngularFireAuth) {
-    this.state = this.af.authState;
+    this.user$ = this.af.authState;
   }
 
   public async login(): Promise<void> {

@@ -1,7 +1,7 @@
-<div *ngIf="user">
-  Hello <b>{{user.displayName}}</b>
+<div *ngIf="auth.user$ | async">
+  Hello <b>{{(auth.user$ | async)?.displayName}}</b>
   <button mat-raised-button color="primary" (click)="logout()">logout</button>
 </div>
-<div *ngIf="!user">
+<div *ngIf="!(auth.user$ | async)">
     <button mat-raised-button color="primary" (click)="login()">login</button>
 </div>

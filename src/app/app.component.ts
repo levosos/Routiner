@@ -10,10 +10,7 @@ import * as firebase from 'firebase/app';
 export class AppComponent {
   public user: firebase.User;
 
-  constructor(private auth: AuthService) {
-    auth.state.subscribe(
-      user => { this.user = user; }
-    );
+  constructor(public auth: AuthService) {
   }
 
   public async login(): Promise<void> {
