@@ -1,7 +1,7 @@
 <div *ngIf="user">
   Hello <b>{{user.displayName}}</b>
-  <p (click)="logout()">logout</p>
+  <button mat-raised-button color="primary" (click)="logout()">logout</button>
 </div>
 <div *ngIf="!user">
-  <p (click)="login()">login</p>
+    <button mat-raised-button color="primary" (click)="login()">login</button>
 </div>
