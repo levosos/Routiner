@@ -1,1 +1,2 @@
-@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "~@covalent/core/common/platform.css";
+@import "~@covalent/core/theming/prebuilt/blue-orange.css"
