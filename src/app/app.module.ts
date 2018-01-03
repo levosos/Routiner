@@ -15,6 +15,15 @@ import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { AuthService } from './services/auth.service';
 
+const firebase = {
+  apiKey: 'AIzaSyDn8LUHqBwJwXg97xHLYewhCnEYuZlAAFI',
+  authDomain: 'routiner-app.firebaseapp.com',
+  databaseURL: 'https://routiner-app.firebaseio.com',
+  projectId: 'routiner-app',
+  storageBucket: 'routiner-app.appspot.com',
+  messagingSenderId: '20612972512'
+};
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +35,7 @@ import { AuthService } from './services/auth.service';
     MatCardModule,
     MatListModule,
     MatIconModule,
-    AngularFireModule.initializeApp(environment.firebase, 'routiner'),
+    AngularFireModule.initializeApp(firebase, 'routiner'),
     AngularFireAuthModule,
     CovalentLayoutModule,
   ],
