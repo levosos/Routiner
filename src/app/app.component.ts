@@ -1,31 +1,8 @@
 import { Component } from '@angular/core';
-import { AuthService } from './services/auth.service';
-import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
-  public user: firebase.User;
-
-  constructor(public auth: AuthService) {
-  }
-
-  public async login(): Promise<void> {
-    try {
-      await this.auth.login();
-    } catch (e) {
-      console.error(e);
-    }
-  }
-
-  public async logout(): Promise<void> {
-    try {
-      await this.auth.logout();
-    } catch (e) {
-      console.error(e);
-    }
-  }
 }
