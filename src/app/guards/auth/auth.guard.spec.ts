@@ -1,3 +1,4 @@
+import { $it } from 'jasmine-ts-async';
 import { TestBed, inject } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -24,14 +25,14 @@ describe('AuthGuard', () => {
   }));
 
   describe('logged', () => {
-    it('sanity', inject([AuthGuard, AngularFireAuth], async (guard: AuthGuard, af: MockAngularFireAuth.AngularFireAuth) => {
+    $it('sanity', inject([AuthGuard, AngularFireAuth], async (guard: AuthGuard, af: MockAngularFireAuth.AngularFireAuth) => {
       af.__authState_logged = true;
 
       const can = await guard.canActivate();
       expect(can).toBeTruthy();
     }));
 
-    it('not redirected', inject([AuthGuard, AngularFireAuth, Router], async (
+    $it('not redirected', inject([AuthGuard, AngularFireAuth, Router], async (
         guard: AuthGuard,
         af: MockAngularFireAuth.AngularFireAuth,
         router: MockRouter.Router
@@ -45,19 +46,20 @@ describe('AuthGuard', () => {
   });
 
   describe('not logged', () => {
-    it('sanity', inject([AuthGuard, AngularFireAuth], async (guard: AuthGuard, af: MockAngularFireAuth.AngularFireAuth) => {
+    $it('sanity', inject([AuthGuard, AngularFireAuth], async (guard: AuthGuard, af: MockAngularFireAuth.AngularFireAuth) => {
       af.__authState_logged = false;
 
       const can = await guard.canActivate();
       expect(can).toBeFalsy();
     }));
 
-    it('redirected', inject([AuthGuard, AngularFireAuth, Router], async (
+    $it('redirected', inject([AuthGuard, AngularFireAuth, Router], async (
         guard: AuthGuard,
         af: MockAngularFireAuth.AngularFireAuth,
         router: MockRouter.Router
       ) => {
       af.__authState_logged = false;
+      router.__test = MockRouter.Test.Sanity;
 
       await guard.canActivate();
       await utils.delay(1000); // redirecting is asynchronous
