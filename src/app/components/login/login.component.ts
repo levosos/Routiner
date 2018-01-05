@@ -35,7 +35,7 @@ export class LoginComponent extends ErrorableComponent implements OnInit {
   private async _navigate(): Promise<void> {
     await this.trap(async () => {
       if (!await this._router.navigateByUrl('/members')) {
-        throw Error('Failed redirecting to \'/\'');
+        throw Error('Failed redirecting to \'/members\'');
       }
     });
   }
