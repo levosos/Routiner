@@ -15,7 +15,10 @@ export class MembersComponent extends ErrorableComponent {
   public async logout(): Promise<void> {
     await this.trap(async () => {
       await this._auth.logout();
-      await this._router.navigateByUrl('');
+
+      if (!await this._router.navigateByUrl('')) {
+        throw Error('Failed redirecting to \'/\'');
+      }
     });
   }
 }
