@@ -141,4 +141,26 @@ describe('AuthService', () => {
       expect(logged).toBeFalsy();
     }));
   });
+
+  describe('getLoggedInUser()', () => {
+    $it('logged in', inject([AuthService, AngularFireAuth], async (service: AuthService, mock: MockAngularFireAuth.AngularFireAuth) => {
+      mock.__authState_logged = true;
+      const user = await service.getLoggedInUser();
+      expect(user).toBeDefined();
+    }));
+
+    $it('not logged in', inject([AuthService, AngularFireAuth], async (service: AuthService, mock: MockAngularFireAuth.AngularFireAuth) => {
+      mock.__authState_logged = false;
+
+      let error: Error;
+
+      try {
+        await service.getLoggedInUser();
+      } catch (e) {
+        error = e;
+      }
+
+      expect(error).toBeDefined();
+    }));
+  });
 });

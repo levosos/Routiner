@@ -32,12 +32,25 @@ export class AuthService {
   }
 
   public async isLoggedIn(): Promise<boolean> {
+    return await this.snapLoggedInUser() !== null;
+  }
+
+  public async getLoggedInUser(): Promise<firebase.User> {
+    const user = await this.snapLoggedInUser();
+
+    if (user === null) {
+      throw Error('Not logged in');
+    }
+
+    return user;
+  }
+
+  private async snapLoggedInUser(): Promise<firebase.User | null> {
     const promise: Promise<firebase.User | null> = new Promise(resolve => {
       this.user$.subscribe(x => resolve(x));
     });
 
     const auth = await promise;
-
-    return auth !== null;
+    return auth;
   }
 }
