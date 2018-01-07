@@ -2,7 +2,7 @@ import { Base } from './base.model';
 import { Type } from './type.enum';
 
 export class PlaySong extends Base {
-    constructor(public name: string) {
+    constructor(public title: string, public artist: string) {
         super(Type.PlaySong);
     }
 }
