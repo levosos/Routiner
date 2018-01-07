@@ -49,6 +49,20 @@ describe('ErrorableComponent', () => {
         expect(component.error.message).toEqual(msg);
     });
 
+
+    $it('custom message error', async () => {
+        const msg = 'errormessage';
+
+        const component: ErrorableComponent = new ErrorableComponent();
+
+        await component.trap(async () => {
+            throw Error('not ' + msg);
+        }, msg);
+
+        expect(component.error).toBeDefined();
+        expect(component.error.message).toEqual(msg);
+    });
+
     $it('error is reset', async () => {
         const msg = 'errormessage';
 
