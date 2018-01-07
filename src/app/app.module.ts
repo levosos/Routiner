@@ -7,6 +7,7 @@ import {
          MatCardModule,
          MatListModule,
          MatIconModule,
+         MatMenuModule,
        } from '@angular/material';
 
 import { AngularFireModule } from 'angularfire2';
@@ -47,6 +48,7 @@ const firebase = {
     MatCardModule,
     MatListModule,
     MatIconModule,
+    MatMenuModule,
     AngularFireModule.initializeApp(firebase, 'routiner'),
     AngularFireAuthModule,
     CovalentLayoutModule,
