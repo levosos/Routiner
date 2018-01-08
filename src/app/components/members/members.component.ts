@@ -1,24 +1,27 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth/auth.service';
+import { BlocksService } from '../../services/blocks/blocks.service';
 import { ErrorableComponent } from '../errorable.component';
+import * as Blocks from '../../blocks';
 
 @Component({
   templateUrl: './members.component.html'
 })
 export class MembersComponent extends ErrorableComponent {
 
-  constructor(private _router: Router, private _auth: AuthService) {
+  constructor(public blocks: BlocksService) {
     super();
   }
 
-  public async logout(): Promise<void> {
+  public async add(): Promise<void> {
     await this.trap(async () => {
-      await this._auth.logout();
+      const block: Blocks.PlaySong = new Blocks.PlaySong('Soul to Squeeze', 'Red Hot Chili Peppers');
+      await this.blocks.add(block);
+    }, 'Failed adding');
+  }
 
-      if (!await this._router.navigateByUrl('')) {
-        throw Error('Failed redirecting to \'/\'');
-      }
-    });
+  public async delete(document: Blocks.Document): Promise<void> {
+    await this.trap(async () => {
+      await this.blocks.delete(document);
+    }, 'Failed deleting');
   }
 }

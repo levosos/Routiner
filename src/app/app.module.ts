@@ -12,14 +12,19 @@ import {
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 
-import { CovalentLayoutModule } from '@covalent/core';
+import {
+         CovalentLayoutModule,
+         CovalentMessageModule,
+        } from '@covalent/core';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { MembersComponent } from './components/members/members.component';
 
 import { AuthService } from './services/auth/auth.service';
+import { BlocksService } from './services/blocks/blocks.service';
 
 import { AuthGuard } from './guards/auth/auth.guard';
 
@@ -51,10 +56,13 @@ const firebase = {
     MatMenuModule,
     AngularFireModule.initializeApp(firebase, 'routiner'),
     AngularFireAuthModule,
+    AngularFirestoreModule,
     CovalentLayoutModule,
+    CovalentMessageModule,
   ],
   providers: [
     AuthService,
+    BlocksService,
     AuthGuard,
   ],
   bootstrap: [AppComponent]

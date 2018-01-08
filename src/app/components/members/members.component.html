@@ -1,2 +1,11 @@
-<span class="error" *ngIf="error">{{ error }}</span>
-<button (click)="logout()">logout</button><br>
+<mat-card>
+    <td-message *ngIf="error" label="Error" [sublabel]="error" color="warn" icon="error"></td-message>
+    <button mat-raised-button color="accent" (click)="add()">add</button>
+    <mat-list>
+        <mat-list-item *ngFor="let block of blocks.blocks$ | async">
+            <h3 matLine>{{block.title}}</h3>
+            <p matLine>{{block.artist}}</p>
+            <button matLine mat-raised-button color="warn" (click)="delete(block)">delete</button>
+        </mat-list-item>
+    </mat-list>
+</mat-card>
