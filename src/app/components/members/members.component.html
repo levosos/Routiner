@@ -5,6 +5,7 @@
         <mat-list-item *ngFor="let block of blocks.blocks$ | async">
             <h3 matLine *ngIf="block.type === Blocks.Type.LearnSong">{{block.title}}</h3>
             <p matLine *ngIf="block.type === Blocks.Type.LearnSong">{{block.artist}}</p>
+            <p matLine *ngIf="block.type === Blocks.Type.LearnSong">Level: {{block.level}}</p>
 
             <h3 matLine *ngIf="block.type === Blocks.Type.Technique">{{block.description}}</h3>
             <p matLine *ngIf="block.type === Blocks.Type.Technique">{{block.bpm}} BPM</p>

@@ -18,10 +18,10 @@ export class AddBlockLearnSongForm {
       artist: new FormControl('', [
         Validators.required
       ]),
-      percentage: new FormControl(0, [
+      level: new FormControl(0, [
         Validators.required,
         Validators.min(0),
-        Validators.max(100)
+        Validators.max(5)
       ])
     });
   }
