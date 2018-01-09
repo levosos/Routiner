@@ -1,0 +1,20 @@
+<div [formGroup]="form">
+  <mat-form-field>
+    <input matInput placeholder="Title" formControlName="title">
+    <mat-error>
+      Please enter a title
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Artist" formControlName="artist">
+    <mat-error>
+      Please enter an artist
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="number" min="0" max="100" placeholder="Percentage" formControlName="percentage">
+    <mat-error>
+      Please enter a valid percentage (0-100)
+    </mat-error>
+  </mat-form-field>
+</div>

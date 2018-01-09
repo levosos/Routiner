@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import {
          MatButtonModule,
@@ -8,6 +9,9 @@ import {
          MatListModule,
          MatIconModule,
          MatMenuModule,
+         MatDialogModule,
+         MatSelectModule,
+         MatInputModule,
        } from '@angular/material';
 
 import { AngularFireModule } from 'angularfire2';
@@ -22,6 +26,11 @@ import {
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { MembersComponent } from './components/members/members.component';
+
+import { AddBlockDialog } from './dialogs/add-block/add-block.dialog';
+
+import { AddBlockLearnSongForm } from './forms/add-block-learn-song/add-block-learn-song.form';
+import { AddBlockTechniqueForm } from './forms/add-block-technique/add-block-technique.form';
 
 import { AuthService } from './services/auth/auth.service';
 import { BlocksService } from './services/blocks/blocks.service';
@@ -44,16 +53,26 @@ const firebase = {
     AppComponent,
     LoginComponent,
     MembersComponent,
+    AddBlockDialog,
+    AddBlockLearnSongForm,
+    AddBlockTechniqueForm,
+  ],
+  entryComponents: [
+    AddBlockDialog
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     routes,
     MatButtonModule,
     MatCardModule,
     MatListModule,
     MatIconModule,
     MatMenuModule,
+    MatDialogModule,
+    MatSelectModule,
+    MatInputModule,
     AngularFireModule.initializeApp(firebase, 'routiner'),
     AngularFireAuthModule,
     AngularFirestoreModule,

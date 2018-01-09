@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth/auth.service';
-import { ErrorableComponent } from '../errorable.component';
+import { ErrorableComponent } from '../errorable/errorable.component';
 
 @Component({
   templateUrl: './login.component.html'

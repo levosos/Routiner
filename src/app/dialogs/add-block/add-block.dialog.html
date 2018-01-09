@@ -1,0 +1,15 @@
+<div mat-dialog-title>Add a block</div>
+<mat-dialog-content>
+  <td-message *ngIf="error" label="Error" [sublabel]="error" color="warn" icon="error"></td-message>
+  <mat-select placeholder="Type" (selectionChange)="onSelect($event.value)">
+    <mat-option [value]="Blocks.Type.Technique">Technique</mat-option>
+    <mat-option [value]="Blocks.Type.LearnSong">Learn a song</mat-option>
+  </mat-select>
+  <mat-divider></mat-divider>
+  <app-add-block-technique *ngIf="type === Blocks.Type.Technique" [form]="form"></app-add-block-technique>
+  <app-add-block-learn-song *ngIf="type === Blocks.Type.LearnSong" [form]="form"></app-add-block-learn-song>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+  <button mat-raised-button color="primary" [disabled]="!form || form?.invalid" (click)="onSubmit()">Add</button>
+</mat-dialog-actions>

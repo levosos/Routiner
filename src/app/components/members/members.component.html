@@ -3,8 +3,12 @@
     <button mat-raised-button color="accent" (click)="add()">add</button>
     <mat-list>
         <mat-list-item *ngFor="let block of blocks.blocks$ | async">
-            <h3 matLine>{{block.title}}</h3>
-            <p matLine>{{block.artist}}</p>
+            <h3 matLine *ngIf="block.type === Blocks.Type.LearnSong">{{block.title}}</h3>
+            <p matLine *ngIf="block.type === Blocks.Type.LearnSong">{{block.artist}}</p>
+
+            <h3 matLine *ngIf="block.type === Blocks.Type.Technique">{{block.description}}</h3>
+            <p matLine *ngIf="block.type === Blocks.Type.Technique">{{block.bpm}} BPM</p>
+
             <button matLine mat-raised-button color="warn" (click)="delete(block)">delete</button>
         </mat-list-item>
     </mat-list>

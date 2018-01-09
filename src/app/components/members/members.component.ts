@@ -1,21 +1,23 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material';
 import { BlocksService } from '../../services/blocks/blocks.service';
-import { ErrorableComponent } from '../errorable.component';
+import { ErrorableComponent } from '../errorable/errorable.component';
+import { AddBlockDialog } from '../../dialogs/add-block/add-block.dialog';
 import * as Blocks from '../../blocks';
 
 @Component({
   templateUrl: './members.component.html'
 })
 export class MembersComponent extends ErrorableComponent {
+  public Blocks = Blocks;
 
-  constructor(public blocks: BlocksService) {
+  constructor(public blocks: BlocksService, private dialog: MatDialog) {
     super();
   }
 
   public async add(): Promise<void> {
     await this.trap(async () => {
-      const block: Blocks.PlaySong = new Blocks.PlaySong('Soul to Squeeze', 'Red Hot Chili Peppers');
-      await this.blocks.add(block);
+      await this.dialog.open(AddBlockDialog).afterClosed().toPromise();
     }, 'Failed adding');
   }
 
