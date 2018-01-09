@@ -25,7 +25,7 @@ import {
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
-import { MembersComponent } from './components/members/members.component';
+import { RoutineComponent } from './components/routine/routine.component';
 
 import { AddBlockDialog } from './dialogs/add-block/add-block.dialog';
 
@@ -52,7 +52,7 @@ const firebase = {
   declarations: [
     AppComponent,
     LoginComponent,
-    MembersComponent,
+    RoutineComponent,
     AddBlockDialog,
     AddBlockLearnSongForm,
     AddBlockTechniqueForm,

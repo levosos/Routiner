@@ -5,15 +5,15 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import * as MockRouter from '../../mocks/router.mock.service';
 import * as MockAngularFireAuth from '../../mocks/angularfireauth.mock.service';
 import { AuthService } from '../../services/auth/auth.service';
-import { MembersComponent } from './members.component';
+import { RoutineComponent } from './routine.component';
 
-describe('MembersComponent', () => {
-  let component: MembersComponent;
-  let fixture: ComponentFixture<MembersComponent>;
+describe('RoutineComponent', () => {
+  let component: RoutineComponent;
+  let fixture: ComponentFixture<RoutineComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MembersComponent ],
+      declarations: [ RoutineComponent ],
       providers: [
         AuthService,
         { provide: AngularFireAuth, useClass: MockAngularFireAuth.AngularFireAuth },
@@ -24,7 +24,7 @@ describe('MembersComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MembersComponent);
+    fixture = TestBed.createComponent(RoutineComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
