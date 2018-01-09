@@ -1,8 +1,6 @@
-import { Base } from './base.model';
-import { Type } from './type.enum';
+import { Block } from './block.model';
 
-export class Technique extends Base {
-    constructor(public description: string, public bpm: number) {
-        super(Type.Technique);
-    }
+export interface Technique extends Block {
+    description: string;
+    bpm: number;
 }

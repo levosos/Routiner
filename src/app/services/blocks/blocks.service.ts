@@ -7,17 +7,17 @@ import * as Blocks from '../../blocks';
 @Injectable()
 export class BlocksService {
 
-  private collection: AngularFirestoreCollection<Blocks.Base> | null = null;
+  private collection: AngularFirestoreCollection<Blocks.Block> | null = null;
   public blocks$: Observable<Blocks.Document[]> | null = null;
 
   constructor(auth: AuthService, firestore: AngularFirestore) {
     auth.user$.subscribe(user => {
       if (user) {
-        this.collection = firestore.collection<Blocks.Base>(user.uid);
+        this.collection = firestore.collection<Blocks.Block>(user.uid);
         this.blocks$ = this.collection.snapshotChanges().map(actions => {
           return actions.map(action => {
             const id: string = action.payload.doc.id;
-            const data: Blocks.Base = action.payload.doc.data() as Blocks.Base;
+            const data: Blocks.Block = action.payload.doc.data() as Blocks.Block;
 
             return { id, ...data } as Blocks.Document;
           });
@@ -28,7 +28,7 @@ export class BlocksService {
     });
   }
 
-  public async add(block: Blocks.Base): Promise<void> {
+  public async add(block: Blocks.Block): Promise<void> {
     await this.collection.add(Object.assign({}, block));
   }
 

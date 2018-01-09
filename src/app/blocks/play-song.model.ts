@@ -1,8 +1,6 @@
-import { Base } from './base.model';
-import { Type } from './type.enum';
+import { Block } from './block.model';
 
-export class PlaySong extends Base {
-    constructor(public title: string, public artist: string) {
-        super(Type.PlaySong);
-    }
+export interface PlaySong extends Block {
+    title: string;
+    artist: string;
 }

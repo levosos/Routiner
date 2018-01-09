@@ -1,5 +1,5 @@
-import { Base } from './base.model';
+import { Block } from './block.model';
 
-export interface Document extends Base {
+export interface Document extends Block {
     id: string;
 }
