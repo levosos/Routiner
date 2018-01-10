@@ -1,3 +1,12 @@
 <p><b>{{phase.data.title}}</b> {{phase.data.minutes}}'</p>
+<button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="onDelete()">
+        <mat-icon>remove_circle_outline</mat-icon>
+        <span>Delete</span>
+    </button>
+</mat-menu>
 <app-block *ngFor="let block of phase.blocks$ | async" [block]="block"></app-block>
 <button mat-raised-button (click)="add()">add block</button>

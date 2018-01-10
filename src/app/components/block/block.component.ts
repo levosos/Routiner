@@ -8,4 +8,8 @@ import * as Documents from '../../documents';
 export class BlockComponent {
   @Input()
   public block: Documents.Block;
+
+  public async onDelete(): Promise<void> {
+    await this.block.delete();
+  }
 }

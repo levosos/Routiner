@@ -22,4 +22,8 @@ export class PhaseComponent {
       await this.phase.add(block);
     }
   }
+
+  public async onDelete(): Promise<void> {
+    await this.phase.delete();
+  }
 }

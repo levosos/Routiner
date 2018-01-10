@@ -6,4 +6,8 @@ export class Block {
       private document: AngularFirestoreDocument<Blocks.Block>,
       public data: Blocks.Block
     ) {}
+
+  public async delete(): Promise<void> {
+    await this.document.delete();
+  }
 }

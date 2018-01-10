@@ -1,3 +1,10 @@
-<p>
-  type: {{block.data.type}}
-</p>
+type: {{block.data.type}}
+<button mat-icon-button [matMenuTriggerFor]="menu">
+  <mat-icon>more_vert</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="onDelete()">
+      <mat-icon>remove_circle_outline</mat-icon>
+      <span>Delete</span>
+  </button>
+</mat-menu>
