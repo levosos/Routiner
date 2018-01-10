@@ -25,7 +25,7 @@ export class Phase {
         );
     }
 
-    public async addBlock(block: Blocks.Block): Promise<void> {
+    public async add(block: Blocks.Block): Promise<void> {
       await this.collection.add(block);
     }
 }

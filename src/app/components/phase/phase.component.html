@@ -1,0 +1,3 @@
+<p><b>{{phase.data.title}}</b> {{phase.data.minutes}}'</p>
+<app-block *ngFor="let block of phase.blocks$ | async" [block]="block"></app-block>
+<button mat-raised-button (click)="add()">add block</button>

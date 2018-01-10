@@ -10,6 +10,6 @@
   <app-add-block-learn-song *ngIf="type === Blocks.Type.LearnSong" [form]="form"></app-add-block-learn-song>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+  <button mat-raised-button color="warn"  (click)="onCancel()">Cancel</button>
   <button mat-raised-button color="primary" [disabled]="!form || form?.invalid" (click)="onSubmit()">Add</button>
 </mat-dialog-actions>

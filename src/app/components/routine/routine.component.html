@@ -1,16 +1,4 @@
 <mat-card>
     <td-message *ngIf="error" label="Error" [sublabel]="error" color="warn" icon="error"></td-message>
-    <button mat-raised-button color="accent" (click)="add()">add</button>
-    <mat-list>
-        <mat-list-item *ngFor="let block of blocks.blocks$ | async">
-            <h3 matLine *ngIf="block.type === Blocks.Type.LearnSong">{{block.title}}</h3>
-            <p matLine *ngIf="block.type === Blocks.Type.LearnSong">{{block.artist}}</p>
-            <p matLine *ngIf="block.type === Blocks.Type.LearnSong">Level: {{block.level}}</p>
-
-            <h3 matLine *ngIf="block.type === Blocks.Type.Technique">{{block.description}}</h3>
-            <p matLine *ngIf="block.type === Blocks.Type.Technique">{{block.bpm}} BPM</p>
-
-            <button matLine mat-raised-button color="warn" (click)="delete(block)">delete</button>
-        </mat-list-item>
-    </mat-list>
+    <app-phase *ngFor="let phase of blocks.routine?.phases$ | async" [phase]="phase"></app-phase>
 </mat-card>

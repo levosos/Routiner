@@ -32,10 +32,11 @@ export class AddBlockDialog extends ErrorableComponent {
     }
   }
 
-  public async onSubmit(): Promise<void> {
-    await this.trap(async () => {
-      await this.blocks.add({ 'type': this.type, ...this.form.value });
-      this.reference.close();
-    }, 'Failed adding new block');
+  public onCancel(): void {
+    this.reference.close(undefined);
+  }
+
+  public onSubmit(): void {
+    this.reference.close({ 'type': this.type, ...this.form.value });
   }
 }
