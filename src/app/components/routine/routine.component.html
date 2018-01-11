@@ -1,4 +1,1 @@
-<mat-card>
-    <td-message *ngIf="error" label="Error" [sublabel]="error" color="warn" icon="error"></td-message>
-    <app-phase *ngFor="let phase of blocks.routine?.phases$ | async" [phase]="phase"></app-phase>
-</mat-card>
+<app-phase *ngFor="let phase of blocks.routine?.phases$ | async" [phase]="phase"></app-phase>
