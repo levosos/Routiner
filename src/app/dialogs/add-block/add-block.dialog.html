@@ -1,7 +1,6 @@
-<div mat-dialog-title>Add a block</div>
 <mat-dialog-content>
   <td-message *ngIf="error" label="Error" [sublabel]="error" color="warn" icon="error"></td-message>
-  <mat-select placeholder="Type" (selectionChange)="onSelect($event.value)">
+  <mat-select *ngIf="!data" placeholder="Choose a block type" (selectionChange)="onSelect($event.value)">
     <mat-option [value]="Blocks.Type.Technique">Technique</mat-option>
     <mat-option [value]="Blocks.Type.LearnSong">Learn a song</mat-option>
   </mat-select>
@@ -11,5 +10,5 @@
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-raised-button color="warn"  (click)="onCancel()">Cancel</button>
-  <button mat-raised-button color="primary" [disabled]="!form || form?.invalid" (click)="onSubmit()">Add</button>
+  <button mat-raised-button color="primary" [disabled]="!form || form?.invalid" (click)="onSubmit()">{{data ? 'Edit' : 'Add'}}</button>
 </mat-dialog-actions>
