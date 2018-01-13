@@ -1,2 +1,2 @@
-<app-phase *ngFor="let phase of blocks.routine?.phases$ | async" [phase]="phase"></app-phase>
+<app-phase *ngFor="let phase of routine?.phases$ | async" [phase]="phase"></app-phase>
 <button mat-raised-button (click)="add()">Add a phase</button>
