@@ -1,0 +1,8 @@
+<mat-dialog-content>
+    <app-block-technique-form *ngIf="type === Blocks.Type.Technique" [form]="form"></app-block-technique-form>
+    <app-block-learn-song-form *ngIf="type === Blocks.Type.LearnSong" [form]="form"></app-block-learn-song-form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+    <button mat-raised-button color="primary" [disabled]="form?.invalid" (click)="onSubmit()">Edit</button>
+</mat-dialog-actions>

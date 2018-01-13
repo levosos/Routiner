@@ -30,6 +30,10 @@ export class Phase {
     await this.collection.add(block);
   }
 
+  public async update(phase: Blocks.Phase): Promise<void> {
+    await this.document.update(phase);
+  }
+
   public async delete(): Promise<void> {
     const blocks: firebase.firestore.QuerySnapshot = await this.collection.ref.get();
 

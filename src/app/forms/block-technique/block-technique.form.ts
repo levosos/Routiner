@@ -3,11 +3,11 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import * as Blocks from '../../blocks';
 
 @Component({
-  selector: 'app-add-block-technique',
-  templateUrl: './add-block-technique.form.html',
-  styleUrls: ['./add-block-technique.form.css']
+  selector: 'app-block-technique-form',
+  templateUrl: './block-technique.form.html',
+  styleUrls: ['./block-technique.form.css']
 })
-export class AddBlockTechniqueForm {
+export class BlockTechniqueForm {
   @Input()
   public form: FormGroup;
 

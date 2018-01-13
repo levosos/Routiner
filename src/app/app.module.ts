@@ -30,9 +30,12 @@ import { BlockComponent } from './components/block/block.component';
 import { PhaseComponent } from './components/phase/phase.component';
 
 import { AddBlockDialog } from './dialogs/add-block/add-block.dialog';
+import { EditBlockDialog } from './dialogs/edit-block/edit-block.dialog';
+import { EditPhaseDialog } from './dialogs/edit-phase/edit-phase.dialog';
 
-import { AddBlockLearnSongForm } from './forms/add-block-learn-song/add-block-learn-song.form';
-import { AddBlockTechniqueForm } from './forms/add-block-technique/add-block-technique.form';
+import { BlockLearnSongForm } from './forms/block-learn-song/block-learn-song.form';
+import { BlockTechniqueForm } from './forms/block-technique/block-technique.form';
+import { PhaseForm } from './forms/phase/phase.form';
 
 import { AuthService } from './services/auth/auth.service';
 import { BlocksService } from './services/blocks/blocks.service';
@@ -58,11 +61,16 @@ const firebase = {
     BlockComponent,
     PhaseComponent,
     AddBlockDialog,
-    AddBlockLearnSongForm,
-    AddBlockTechniqueForm,
+    EditBlockDialog,
+    EditPhaseDialog,
+    BlockLearnSongForm,
+    BlockTechniqueForm,
+    PhaseForm,
   ],
   entryComponents: [
-    AddBlockDialog
+    AddBlockDialog,
+    EditBlockDialog,
+    EditPhaseDialog,
   ],
   imports: [
     BrowserModule,

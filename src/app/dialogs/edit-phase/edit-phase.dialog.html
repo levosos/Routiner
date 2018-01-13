@@ -1,0 +1,7 @@
+<mat-dialog-content>
+    <app-phase-form [form]="form"></app-phase-form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+    <button mat-raised-button color="primary" [disabled]="form?.invalid" (click)="onSubmit()">Edit</button>
+</mat-dialog-actions>

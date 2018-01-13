@@ -3,11 +3,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as Blocks from '../../blocks';
 
 @Component({
-  selector: 'app-add-block-learn-song',
-  templateUrl: './add-block-learn-song.form.html',
-  styleUrls: ['./add-block-learn-song.form.css']
+  selector: 'app-block-learn-song-form',
+  templateUrl: './block-learn-song.form.html',
+  styleUrls: ['./block-learn-song.form.css']
 })
-export class AddBlockLearnSongForm {
+export class BlockLearnSongForm {
   @Input()
   public form: FormGroup;
 
