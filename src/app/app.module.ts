@@ -31,6 +31,7 @@ import { PhaseComponent } from './components/phase/phase.component';
 
 import { AddBlockDialog } from './dialogs/add-block/add-block.dialog';
 import { EditBlockDialog } from './dialogs/edit-block/edit-block.dialog';
+import { AddPhaseDialog } from './dialogs/add-phase/add-phase.dialog';
 import { EditPhaseDialog } from './dialogs/edit-phase/edit-phase.dialog';
 
 import { BlockLearnSongForm } from './forms/block-learn-song/block-learn-song.form';
@@ -62,6 +63,7 @@ const firebase = {
     PhaseComponent,
     AddBlockDialog,
     EditBlockDialog,
+    AddPhaseDialog,
     EditPhaseDialog,
     BlockLearnSongForm,
     BlockTechniqueForm,
@@ -70,6 +72,7 @@ const firebase = {
   entryComponents: [
     AddBlockDialog,
     EditBlockDialog,
+    AddPhaseDialog,
     EditPhaseDialog,
   ],
   imports: [
