@@ -6,9 +6,12 @@ import * as Documents from '../../documents';
 
 @Component({
   selector: 'app-block',
-  templateUrl: './block.component.html'
+  templateUrl: './block.component.html',
+  styleUrls: ['./block.component.css']
 })
 export class BlockComponent {
+  public Blocks = Blocks;
+
   @Input()
   public block: Documents.Block;
 

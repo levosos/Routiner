@@ -1,14 +1,30 @@
-type: {{block.data.type}}
-<button mat-icon-button [matMenuTriggerFor]="menu">
-  <mat-icon>more_vert</mat-icon>
-</button>
-<mat-menu #menu="matMenu">
-  <button mat-menu-item (click)="onEdit()">
-    <mat-icon>edit</mat-icon>
-    <span>Edit</span>
-  </button>
-  <button mat-menu-item (click)="onDelete()">
-      <mat-icon>remove_circle_outline</mat-icon>
-      <span>Delete</span>
-  </button>
-</mat-menu>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title *ngIf="block.data.type === Blocks.Type.Technique">Technique</mat-card-title>
+    <mat-card-title *ngIf="block.data.type === Blocks.Type.LearnSong">Learn a song</mat-card-title>
+    <span flex></span>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+  </mat-card-header>
+  <mat-card-content>
+    <div *ngIf="block.data.type === Blocks.Type.Technique">
+      <p>{{block.data.description}}</p>
+      <p>{{block.data.bpm}} BPM</p>
+    </div>
+    <div *ngIf="block.data.type === Blocks.Type.LearnSong">
+      <p><b>{{block.data.title}}</b></p>
+      <p>by <b>{{block.data.artist}}</b></p>
+    </div>
+  </mat-card-content>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="onEdit()">
+      <mat-icon>edit</mat-icon>
+      <span>Edit</span>
+    </button>
+    <button mat-menu-item (click)="onDelete()">
+        <mat-icon>remove_circle_outline</mat-icon>
+        <span>Delete</span>
+    </button>
+  </mat-menu>
+</mat-card>
