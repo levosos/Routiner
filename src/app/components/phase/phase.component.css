@@ -1,0 +1,7 @@
+.mat-card-header {
+    background-color: lightcoral;
+}
+
+.mat-card-actions button{
+    width: 100%;
+}

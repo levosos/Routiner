@@ -1,3 +1,15 @@
-.mat-card-header {
-    background-color: lightblue;
+.main {
+    display: flex;
+    flex-direction: row;
+    background-color: lightgoldenrodyellow;
+    border-width: 1px;
+    border-color: lightgray;
+    border-style: solid;
+    margin-bottom: 5px;
+}
+
+.icon {
+    align-self: center;
+    margin-right: 15px;
+    margin-left: 5px;
 }

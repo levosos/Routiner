@@ -1,6 +1,9 @@
 <mat-card>
-    <mat-card-title>
-        <b>{{phase.data.title}}</b> - {{phase.data.minutes}}'
+    <mat-card-header>
+        <mat-card-title>
+            <b>{{phase.data.title}}</b> - {{phase.data.minutes}}'
+        </mat-card-title>
+        <span flex></span>
         <button mat-icon-button [matMenuTriggerFor]="menu">
             <mat-icon>more_vert</mat-icon>
         </button>
@@ -10,15 +13,16 @@
                 <span>Edit</span>
             </button>
             <button mat-menu-item (click)="onDelete()">
-                <mat-icon>remove_circle_outline</mat-icon>
+                <mat-icon>delete</mat-icon>
                 <span>Delete</span>
             </button>
         </mat-menu>
-    </mat-card-title>
+    </mat-card-header>
     <mat-card-content>
-        <app-block *ngFor="let block of phase.blocks$ | async" [block]="block"></app-block>
+        <app-block matLine *ngFor="let block of phase.blocks$ | async" [block]="block"></app-block>
+        <p *ngIf="(phase.blocks$ | async)?.length === 0">No blocks yet</p>
     </mat-card-content>
     <mat-card-actions>
-        <button mat-raised-button (click)="add()">Add a block</button>
+        <button mat-raised-button color="accent" (click)="add()">Add a block</button>
     </mat-card-actions>
 </mat-card>

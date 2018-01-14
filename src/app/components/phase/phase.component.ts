@@ -7,7 +7,8 @@ import * as Documents from '../../documents';
 
 @Component({
   selector: 'app-phase',
-  templateUrl: './phase.component.html'
+  templateUrl: './phase.component.html',
+  styleUrls: ['./phase.component.css']
 })
 export class PhaseComponent {
   @Input()
