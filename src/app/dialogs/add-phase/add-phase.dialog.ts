@@ -19,6 +19,6 @@ export class AddPhaseDialog {
     }
 
     public onSubmit(): void {
-        this.reference.close(this.form.value as Blocks.Phase);
+        this.reference.close(this.form.value as Partial<Blocks.Phase>);
     }
 }

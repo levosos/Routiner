@@ -25,7 +25,7 @@ export class RoutineComponent implements OnInit {
   }
 
   public async add(): Promise<void> {
-    const phase: Blocks.Phase | undefined = await this.dialog.open(AddPhaseDialog).afterClosed().toPromise();
+    const phase: Partial<Blocks.Phase> | undefined = await this.dialog.open(AddPhaseDialog).afterClosed().toPromise();
 
     if (phase) {
       await this.routine.add(phase);

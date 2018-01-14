@@ -25,7 +25,8 @@ export class PhaseComponent {
   }
 
   public async onEdit(): Promise<void> {
-    const phase: Blocks.Phase | undefined = await this.dialog.open(EditPhaseDialog, { data: this.phase.data }).afterClosed().toPromise();
+    const phase: Partial<Blocks.Phase> | undefined =
+      await this.dialog.open(EditPhaseDialog, { data: this.phase.data }).afterClosed().toPromise();
 
     if (phase) {
       await this.phase.update(phase);

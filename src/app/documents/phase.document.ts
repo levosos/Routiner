@@ -30,7 +30,7 @@ export class Phase {
     await this.collection.add(block);
   }
 
-  public async update(phase: Blocks.Phase): Promise<void> {
+  public async update(phase: Partial<Blocks.Phase>): Promise<void> {
     await this.document.update(phase);
   }
 
