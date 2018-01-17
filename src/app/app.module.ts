@@ -39,6 +39,7 @@ import { BlockTechniqueForm } from './forms/block-technique/block-technique.form
 import { PhaseForm } from './forms/phase/phase.form';
 
 import { AuthService } from './services/auth/auth.service';
+import { FirestoreService } from './services/firestore/firestore.service';
 
 import { AuthGuard } from './guards/auth/auth.guard';
 
@@ -95,6 +96,7 @@ const firebase = {
   ],
   providers: [
     AuthService,
+    FirestoreService,
     AuthGuard,
   ],
   bootstrap: [AppComponent]
