@@ -3,20 +3,29 @@ import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/fires
 import { AuthService } from '../../services/auth/auth.service';
 import * as Blocks from '../../blocks';
 import * as Documents from '../../documents';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class FirestoreService {
 
-  public routine: Documents.Routine | null = null;
+  public readonly routine$: Observable<Documents.Routine | null>;
+
+  private _routine: Documents.Routine | null = null;
+
+  public get routine(): Documents.Routine | null {
+    return this._routine;
+  }
 
   constructor(private firestore: AngularFirestore, auth: AuthService) {
-    auth.user$.subscribe(user => {
+    this.routine$ = auth.user$.map(user => {
+      this._routine = null;
+
       if (user !== null) {
         const collection: AngularFirestoreCollection<Blocks.Phase> = this.firestore.collection<Blocks.Phase>(user.uid);
-        this.routine = new Documents.Routine(collection);
-      } else {
-        this.routine = null;
+        this._routine = new Documents.Routine(collection);
       }
+
+      return this._routine;
     });
   }
 }
