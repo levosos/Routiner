@@ -33,6 +33,6 @@ export class EditBlockDialog {
   }
 
   public onSubmit(): void {
-    this.reference.close({ 'type': this.type, ...this.form.value } as Blocks.Block);
+    this.reference.close(this.form.value as Partial<Blocks.Block>);
   }
 }

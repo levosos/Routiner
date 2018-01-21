@@ -19,7 +19,8 @@ export class BlockComponent {
   }
 
   public async onEdit(): Promise<void> {
-    const block: Blocks.Block | undefined = await this.dialog.open(EditBlockDialog, { data: this.block.data }).afterClosed().toPromise();
+    const block: Partial<Blocks.Block> | undefined =
+      await this.dialog.open(EditBlockDialog, { data: this.block.data }).afterClosed().toPromise();
 
     if (block) {
       await this.block.update(block);

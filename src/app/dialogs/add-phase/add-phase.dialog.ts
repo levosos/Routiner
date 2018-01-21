@@ -8,7 +8,7 @@ import * as Blocks from '../../blocks';
   templateUrl: './add-phase.dialog.html'
 })
 export class AddPhaseDialog {
-    public form: FormGroup;
+    public readonly form: FormGroup;
 
     constructor(private reference: MatDialogRef<AddPhaseDialog>) {
         this.form = PhaseForm.create();

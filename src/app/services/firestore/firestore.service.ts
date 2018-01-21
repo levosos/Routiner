@@ -4,7 +4,6 @@ import { AuthService } from '../../services/auth/auth.service';
 import * as Blocks from '../../blocks';
 import * as Documents from '../../documents';
 import { Observable } from 'rxjs/Observable';
-import { Document } from '../../blocks';
 
 @Injectable()
 export class FirestoreService {

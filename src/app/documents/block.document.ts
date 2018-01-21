@@ -7,7 +7,7 @@ export class Block {
       public data: Blocks.Block
     ) {}
 
-  public async update(block: Blocks.Block): Promise<void> {
+  public async update(block: Partial<Blocks.Block>): Promise<void> {
     await this.document.update(block);
   }
 
