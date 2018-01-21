@@ -10,7 +10,7 @@ import * as Documents from '../../documents';
 })
 export class RoutineComponent {
 
-  private routine: Documents.Routine;
+  private routine?: Documents.Routine;
 
   constructor(routine: RoutineService, private dialog: MatDialog) {
     routine.routine$.subscribe(r => this.routine = r);
