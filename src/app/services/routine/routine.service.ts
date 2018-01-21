@@ -6,7 +6,7 @@ import * as Documents from '../../documents';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
-export class FirestoreService {
+export class RoutineService {
 
   public readonly routine$: Observable<Documents.Routine | null>;
 

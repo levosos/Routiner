@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FirestoreService } from '../../services/firestore/firestore.service';
+import { RoutineService } from '../../services/routine/routine.service';
 import * as Blocks from '../../blocks';
 import * as Documents from '../../documents';
 
@@ -9,9 +9,9 @@ import * as Documents from '../../documents';
 export class PracticeComponent {
   private block: Blocks.Block;
 
-  constructor(firestore: FirestoreService) {
-    firestore.routine$.subscribe(routine => {
-      routine.phases$.subscribe(phases => {
+  constructor(routine: RoutineService) {
+    routine.routine$.subscribe(r => {
+      r.phases$.subscribe(phases => {
         const phase: Documents.Phase = phases[0];
         phase.blocks$.subscribe(blocks => {
           this.block = blocks[0].data;

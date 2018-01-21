@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { AddPhaseDialog } from '../../dialogs/add-phase/add-phase.dialog';
-import { FirestoreService } from '../../services/firestore/firestore.service';
+import { RoutineService } from '../../services/routine/routine.service';
 import * as Blocks from '../../blocks';
 import * as Documents from '../../documents';
 
@@ -12,8 +12,8 @@ export class RoutineComponent {
 
   private routine: Documents.Routine;
 
-  constructor(firestore: FirestoreService, private dialog: MatDialog) {
-    firestore.routine$.subscribe(routine => this.routine = routine);
+  constructor(routine: RoutineService, private dialog: MatDialog) {
+    routine.routine$.subscribe(r => this.routine = r);
   }
 
   public async add(): Promise<void> {
