@@ -31,6 +31,7 @@ import { BlockComponent } from './components/block/block.component';
 import { PhaseComponent } from './components/phase/phase.component';
 import { PracticeComponent } from './components/practice/practice.component';
 import { TimerComponent } from './components/timer/timer.component';
+import { StopwatchComponent } from './components/stopwatch/stopwatch.component';
 
 import { AddBlockDialog } from './dialogs/add-block/add-block.dialog';
 import { EditBlockDialog } from './dialogs/edit-block/edit-block.dialog';
@@ -68,6 +69,7 @@ const firebase = {
     PhaseComponent,
     PracticeComponent,
     TimerComponent,
+    StopwatchComponent,
     AddBlockDialog,
     EditBlockDialog,
     AddPhaseDialog,

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { RoutineService } from '../../services/routine/routine.service';
+import { StopwatchComponent } from '../stopwatch/stopwatch.component';
 import * as Blocks from '../../blocks';
 import * as Documents from '../../documents';
 import * as utils from '../../utils';
@@ -37,6 +38,8 @@ export class PracticeComponent {
     return this.blocks.current().data;
   }
 
+  @ViewChild('blockStopwatch') blockStopwatch: StopwatchComponent;
+
   constructor(service: RoutineService) {
     service.routine$.subscribe(async routine => {
       this.phases = this.blocks = null;
@@ -52,6 +55,7 @@ export class PracticeComponent {
 
   private nextBlock(): void {
     this.blocks.next();
+    this.blockStopwatch.reset();
   }
 
   private async nextPhase(): Promise<void> {
@@ -68,5 +72,6 @@ export class PracticeComponent {
     const blocks: Documents.Block[] = await utils.snap(phase.blocks$);
 
     this.blocks = new utils.Iterator<Documents.Block>(blocks);
+    this.blockStopwatch.reset();
   }
 }

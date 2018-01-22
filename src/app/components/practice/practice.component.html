@@ -1,16 +1,24 @@
 <mat-card>
-    <mat-card-title>
-      {{phase?.title}}
-    </mat-card-title>
-    <mat-card-subtitle>
-      <app-timer *ngIf="phase" [seconds]="phase.minutes * 60"></app-timer>
-    </mat-card-subtitle>
-    <mat-card-content>
-      <p *ngIf="block?.type === Blocks.Type.LearnSong">Learn <b>{{block.title}}</b> by <b>{{block.artist}}</b></p>
-      <p *ngIf="block?.type === Blocks.Type.Technique">Practice <b>'{{block.description}}'</b> at {{block.bpm}} BPM</p>    
+  <mat-card-title>
+    {{phase?.title}}
+  </mat-card-title>
+  <mat-card-subtitle>
+    <app-timer *ngIf="phase" [seconds]="phase.minutes * 60"></app-timer>
+  </mat-card-subtitle>
+  <mat-card-content>
+    <p *ngIf="block?.type === Blocks.Type.LearnSong">Learn <b>{{block.title}}</b> by <b>{{block.artist}}</b></p>
+    <p *ngIf="block?.type === Blocks.Type.Technique">Practice <b>'{{block.description}}'</b> at {{block.bpm}} BPM</p>
+    <br/>
+    <br/>
+    <div>
+      Block practice time: <app-stopwatch #blockStopwatch></app-stopwatch>
+    </div>
+    <div>
+      Total practice time: <app-stopwatch></app-stopwatch>
+    </div>
   </mat-card-content>
   <mat-card-actions>
-      <button mat-button [disabled]="!phases || !phases.more()" (click)="nextPhase()">Next phase</button>
-      <button mat-button [disabled]="!blocks || !blocks.more()" (click)="nextBlock()">Next block</button>
+    <button mat-button [disabled]="!phases || !phases.more()" (click)="nextPhase()">Next phase</button>
+    <button mat-button [disabled]="!blocks || !blocks.more()" (click)="nextBlock()">Next block</button>
   </mat-card-actions>
 </mat-card>

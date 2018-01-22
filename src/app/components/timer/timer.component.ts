@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 import 'rxjs/add/observable/interval';
@@ -7,14 +7,14 @@ import 'rxjs/add/observable/interval';
   selector: 'app-timer',
   templateUrl: './timer.component.html'
 })
-export class TimerComponent implements OnChanges {
+export class TimerComponent implements OnChanges, OnDestroy {
 
   private subscription: Subscription;
   public passed: number;
 
   @Input() public seconds: number;
 
-  async ngOnChanges(): Promise<void> {
+  public ngOnChanges(): void {
     if (this.subscription && !this.subscription.closed) {
       this.subscription.unsubscribe();
     }
@@ -32,5 +32,11 @@ export class TimerComponent implements OnChanges {
         this.subscription.unsubscribe();
       }
     });
+  }
+
+  public ngOnDestroy(): void {
+    if (this.subscription && !this.subscription.closed) {
+      this.subscription.unsubscribe();
+    }
   }
 }
