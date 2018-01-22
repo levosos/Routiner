@@ -29,6 +29,7 @@ import { RoutineComponent } from './components/routine/routine.component';
 import { BlockComponent } from './components/block/block.component';
 import { PhaseComponent } from './components/phase/phase.component';
 import { PracticeComponent } from './components/practice/practice.component';
+import { TimerComponent } from './components/timer/timer.component';
 
 import { AddBlockDialog } from './dialogs/add-block/add-block.dialog';
 import { EditBlockDialog } from './dialogs/edit-block/edit-block.dialog';
@@ -43,6 +44,8 @@ import { AuthService } from './services/auth/auth.service';
 import { RoutineService } from './services/routine/routine.service';
 
 import { AuthGuard } from './guards/auth/auth.guard';
+
+import { SecondsPipe } from './pipes/seconds/seconds.pipe';
 
 import { routes } from './app.router';
 
@@ -63,6 +66,7 @@ const firebase = {
     BlockComponent,
     PhaseComponent,
     PracticeComponent,
+    TimerComponent,
     AddBlockDialog,
     EditBlockDialog,
     AddPhaseDialog,
@@ -70,6 +74,7 @@ const firebase = {
     BlockLearnSongForm,
     BlockTechniqueForm,
     PhaseForm,
+    SecondsPipe,
   ],
   entryComponents: [
     AddBlockDialog,

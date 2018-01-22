@@ -2,6 +2,9 @@
     <mat-card-title>
       {{phase?.title}}
     </mat-card-title>
+    <mat-card-subtitle>
+      <app-timer *ngIf="phase" [seconds]="phase.minutes * 60"></app-timer>
+    </mat-card-subtitle>
     <mat-card-content>
       <p *ngIf="block?.type === Blocks.Type.LearnSong">Learn <b>{{block.title}}</b> by <b>{{block.artist}}</b></p>
       <p *ngIf="block?.type === Blocks.Type.Technique">Practice <b>'{{block.description}}'</b> at {{block.bpm}} BPM</p>    
