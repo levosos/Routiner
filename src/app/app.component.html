@@ -1,5 +1,14 @@
 <td-layout>
+    <td-navigation-drawer [name]="(auth.user$ | async)?.displayName">
+        <mat-nav-list>
+            <a mat-list-item routerLink="/routine" tdLayoutToggle><mat-icon>edit</mat-icon>Edit</a>
+            <a mat-list-item routerLink="/practice" tdLayoutToggle><mat-icon>fitness_center</mat-icon>Practice</a>
+        </mat-nav-list>
+    </td-navigation-drawer>
     <td-layout-nav>
+        <button mat-icon-button td-menu-button tdLayoutToggle *ngIf="auth.user$ | async">
+            <mat-icon>menu</mat-icon>
+        </button>
         <div td-toolbar-content layout="row" layout-align="center center" flex>
             <span [routerLink]="['/']" class="cursor-pointer">Routiner</span>
             <span flex></span>
