@@ -10,6 +10,7 @@ import 'rxjs/add/observable/interval';
 export class TimerComponent implements OnChanges {
 
   private subscription: Subscription;
+  public passed: number;
 
   @Input() public seconds: number;
 
@@ -18,14 +19,16 @@ export class TimerComponent implements OnChanges {
       this.subscription.unsubscribe();
     }
 
+    this.passed = 0;
+
     if (this.seconds === 0) {
       return;
     }
 
     this.subscription = Observable.interval(1000).subscribe(x => {
-      this.seconds--;
+      this.passed++;
 
-      if (this.seconds === 0) {
+      if (this.passed === this.seconds) {
         this.subscription.unsubscribe();
       }
     });

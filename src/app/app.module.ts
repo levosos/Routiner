@@ -12,6 +12,7 @@ import {
          MatDialogModule,
          MatSelectModule,
          MatInputModule,
+         MatProgressBarModule,
        } from '@angular/material';
 
 import { AngularFireModule } from 'angularfire2';
@@ -95,6 +96,7 @@ const firebase = {
     MatDialogModule,
     MatSelectModule,
     MatInputModule,
+    MatProgressBarModule,
     AngularFireModule.initializeApp(firebase, 'routiner'),
     AngularFireAuthModule,
     AngularFirestoreModule,
