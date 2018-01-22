@@ -1,5 +1,13 @@
 <mat-card>
-  <mat-card-content>
-    <p>{{block?.type}}</p>
+    <mat-card-title>
+      {{phase?.title}}
+    </mat-card-title>
+    <mat-card-content>
+      <p *ngIf="block?.type === Blocks.Type.LearnSong">Learn <b>{{block.title}}</b> by <b>{{block.artist}}</b></p>
+      <p *ngIf="block?.type === Blocks.Type.Technique">Practice <b>'{{block.description}}'</b> at {{block.bpm}} BPM</p>    
   </mat-card-content>
+  <mat-card-actions>
+      <button mat-button [disabled]="!phases || !phases.more()" (click)="nextPhase()">Next phase</button>
+      <button mat-button [disabled]="!blocks || !blocks.more()" (click)="nextBlock()">Next block</button>
+  </mat-card-actions>
 </mat-card>

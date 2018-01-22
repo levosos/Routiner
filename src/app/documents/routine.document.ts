@@ -4,6 +4,7 @@ import * as firebase from 'firebase/app';
 import * as Blocks from '../blocks';
 import { Phase } from './phase.document';
 import * as _ from 'lodash';
+
 export class Routine {
 
   public readonly phases$: Observable<Phase[]>;
